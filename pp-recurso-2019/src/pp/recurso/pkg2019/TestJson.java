@@ -26,7 +26,7 @@ public class TestJson {
      */
     public static void main(String[] args) {
         Pessoa pessoas[] = new Pessoa[2];
-        String path = "C:\\Users\\Tiago Pinto\\Documents\\NetBeansProjects\\Trabalho_PP_RECURSO_2019\\pp-recurso\\pp-recurso-2019\\src\\pp\\recurso\\pkg2019\\exemplo.json";
+        String path = "/Users/joaosoares/NetBeansProjects/pp-recurso/pp-recurso-2019/src/pp/recurso/pkg2019/exemplo.json";
         BufferedReader reader = null;
         //hhhh
         
@@ -47,8 +47,10 @@ public class TestJson {
                     int temp_idade = obj.get("idade").getAsInt();
                     
                     pessoas[i] = new Pessoa(temp_nome, temp_idade);
+                    System.out.println("" + temp_nome);
+                    System.out.println("" + temp_idade);
                 }
-                System.out.println("" + Arrays.toString(pessoas));
+                
             }
             
         } catch (FileNotFoundException ex) {
