@@ -11,34 +11,40 @@ package pp.recurso.pkg2019;
  */
 public class QuestionMultipleChoice extends Question implements interfaces.models.IQuestionMultipleChoice{
 
+    
+    private String[] options;
+    private String correctAnswer;
+    private String userAnswer;
+    
+    
     @Override
     public String[] getOptions() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return options;
     }
 
     @Override
     public void setOptions(String[] strings) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.options = strings;
     }
 
     @Override
     public String getCorrect_answer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return correctAnswer;
     }
 
     @Override
     public void setCorrect_answer(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.correctAnswer = string;
     }
 
     @Override
     public String getUser_answer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return userAnswer;
     }
 
     @Override
     public void setUser_answer(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.userAnswer = string;
     }
     
 }

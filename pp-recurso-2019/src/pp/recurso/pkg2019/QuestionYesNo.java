@@ -11,24 +11,31 @@ package pp.recurso.pkg2019;
  */
 public class QuestionYesNo extends Question implements interfaces.models.IQuestionYesNo{
 
+    
+    private String correctAnswer;
+    private String userAnswer;
+    
     @Override
     public String getCorrect_answer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return correctAnswer;
     }
 
     @Override
     public void setCorrect_answer(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        this.correctAnswer = string;
+        
     }
 
     @Override
     public String getUser_answer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return userAnswer;
+        
     }
 
     @Override
     public void setUser_answer(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.userAnswer = string;
     }
     
 }

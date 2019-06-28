@@ -11,24 +11,28 @@ package pp.recurso.pkg2019;
  */
 public class QuestionNumeric extends Question implements interfaces.models.IQuestionNumeric{
 
+    private double correctAnswer;
+    private double userAnswer;
+    
+    
     @Override
     public double getCorrect_anwser() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return correctAnswer;
     }
 
     @Override
     public void setCorrect_anwser(double d) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.correctAnswer = d;
     }
 
     @Override
     public double getUser_answer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return userAnswer;
     }
 
     @Override
     public void setUser_answer(double d) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.userAnswer = d;
     }
     
 }

@@ -13,6 +13,8 @@ import interfaces.models.IQuestion;
  */
 public class ScoreStrategy implements interfaces.controller.IScoreStrategy{
 
+    private String calculateScore;
+    
     @Override
     public String CalculateScore(IQuestion[] iqs) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
