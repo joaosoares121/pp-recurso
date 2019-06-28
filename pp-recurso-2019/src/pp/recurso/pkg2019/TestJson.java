@@ -28,6 +28,7 @@ public class TestJson {
         Pessoa pessoas[] = new Pessoa[2];
         String path = "C:\\Users\\Tiago Pinto\\Documents\\NetBeansProjects\\Trabalho_PP_RECURSO_2019\\pp-recurso\\pp-recurso-2019\\src\\pp\\recurso\\pkg2019\\exemplo.json";
         BufferedReader reader = null;
+        //hhhh
         
         try {
             reader = new BufferedReader(new FileReader(path));
