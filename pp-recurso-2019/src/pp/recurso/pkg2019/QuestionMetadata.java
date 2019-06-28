@@ -11,24 +11,29 @@ package pp.recurso.pkg2019;
  */
 public class QuestionMetadata implements interfaces.models.IQuestionMetadata{
 
+    private long start,finish;
+    
+    
     @Override
     public long getTimestamp_start() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        return start;
+        
     }
 
     @Override
     public void setTimestamp_start(long l) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.start = l;
     }
 
     @Override
     public long getTimestamp_finish() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return finish;
     }
 
     @Override
     public void setTimestamp_finish(long l) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.finish = l;
     }
     
 }

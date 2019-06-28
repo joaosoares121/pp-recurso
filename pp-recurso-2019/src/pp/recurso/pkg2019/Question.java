@@ -14,64 +14,76 @@ import interfaces.models.IQuestionMetadata;
  */
 public class Question  implements interfaces.models.IQuestion{
 
+    private String title;
+    private String description;
+    private QuestionMetadata metadata;
+    private boolean done;
+    private String answer;
+    private boolean evaluationAnswer;
+    private float mark;
+    
     @Override
     public String getTitle() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return title;
     }
 
     @Override
     public void setTitle(String string) throws QuestionException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.title = string;
     }
 
     @Override
     public String getQuestion_description() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return description;
     }
 
     @Override
     public void setQuestion_description(String string) throws QuestionException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.description = string;
     }
 
     @Override
     public IQuestionMetadata getQuestion_metadata() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return metadata;
     }
 
     @Override
     public void setQuestion_metadata(IQuestionMetadata iqm) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        this.metadata = (QuestionMetadata) iqm;
+        }
 
     @Override
     public boolean isDone() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return done;
     }
 
     @Override
     public void setDone(boolean bln) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        this.done = bln;
     }
+    
 
     @Override
     public void answer(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    this.answer = string;
+        
+        }
 
     @Override
     public boolean evaluateAnswer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return evaluationAnswer;
+        
     }
 
     @Override
     public void setMark(float f) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.mark = f;
     }
 
     @Override
     public float getMark() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return mark;
     }
     
     
