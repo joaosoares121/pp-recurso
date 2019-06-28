@@ -23,6 +23,8 @@ public class TestStatistics implements interfaces.controller.ITestStatistics{
     private Question[] incorrectAnswers;
     private Question[] correctAnswers;
     
+    //NOVO
+    
     
     @Override
     public double meanTimePerAnswer() {
