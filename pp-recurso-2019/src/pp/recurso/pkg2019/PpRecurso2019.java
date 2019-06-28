@@ -5,6 +5,10 @@
  */
 package pp.recurso.pkg2019;
 
+import interfaces.controller.ITest;
+import interfaces.exceptions.TestException;
+import views.TestWindow;
+
 /**
  *
  * @author joaosoares
@@ -14,10 +18,22 @@ public class PpRecurso2019 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws TestException {
        
+        System.out.println("Inicio Teste");
         
+        //Carrega o teste
+        ITest demoTest = new Test();
         
+        demoTest.loadFromJSONFile("/Users/joaosoares/NetBeansProjects/pp-recurso/pp-recurso-2019/src/data/teste_A.json");
+        
+        //Executar o teste na camada gráfica
+        TestWindow t = new TestWindow();
+        t.startTest(demoTest);
+
+        //Obter resultados do teste
+        System.out.println("Teste efetuado");
+        System.out.println(demoTest.toString());
     }
     
 }
