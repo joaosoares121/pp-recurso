@@ -13,6 +13,17 @@ import interfaces.models.IQuestion;
  */
 public class TestStatistics implements interfaces.controller.ITestStatistics{
 
+    
+    private double meanTimePerAnswer;
+    private double standardDerivationTimePerAnswear;
+    private double correctAnswerPercentage;
+    private double incorrectAnswerPercentage;
+    private int correctAnswer;
+    private int incorrectAnser;
+    private Question[] incorrectAnswers;
+    private Question[] correctAnswers;
+    
+    
     @Override
     public double meanTimePerAnswer() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
