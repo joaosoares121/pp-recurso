@@ -13,6 +13,12 @@ public class QuestionNumeric extends Question implements interfaces.models.IQues
 
     private double correctAnswer;
     private double userAnswer;
+
+    public QuestionNumeric(double correctAnswer, double userAnswer, String title, String description, QuestionMetadata metadata, boolean done, String answer, boolean evaluationAnswer, float mark) {
+        super(title, description, metadata, done, answer, evaluationAnswer, mark);
+        this.correctAnswer = correctAnswer;
+        this.userAnswer = userAnswer;
+    }
     
     
     @Override

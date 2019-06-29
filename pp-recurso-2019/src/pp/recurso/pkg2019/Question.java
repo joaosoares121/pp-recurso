@@ -12,7 +12,7 @@ import interfaces.models.IQuestionMetadata;
  *
  * @author joaosoares
  */
-public class Question  implements interfaces.models.IQuestion{
+public class Question implements interfaces.models.IQuestion{
 
     private String title;
     private String description;
@@ -21,6 +21,20 @@ public class Question  implements interfaces.models.IQuestion{
     private String answer;
     private boolean evaluationAnswer;
     private float mark;
+
+    public Question(String title, String description, QuestionMetadata metadata, boolean done, String answer, boolean evaluationAnswer, float mark) {
+        this.title = title;
+        this.description = description;
+        this.metadata = metadata;
+        this.done = done;
+        this.answer = answer;
+        this.evaluationAnswer = evaluationAnswer;
+        this.mark = mark;
+    }
+    
+    
+    
+    
     
     @Override
     public String getTitle() {

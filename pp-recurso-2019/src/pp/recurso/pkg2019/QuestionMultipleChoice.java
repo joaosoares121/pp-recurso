@@ -15,6 +15,13 @@ public class QuestionMultipleChoice extends Question implements interfaces.model
     private String[] options;
     private String correctAnswer;
     private String userAnswer;
+
+    public QuestionMultipleChoice(String[] options, String correctAnswer, String userAnswer, String title, String description, QuestionMetadata metadata, boolean done, String answer, boolean evaluationAnswer, float mark) {
+        super(title, description, metadata, done, answer, evaluationAnswer, mark);
+        this.options = options;
+        this.correctAnswer = correctAnswer;
+        this.userAnswer = userAnswer;
+    }
     
     
     @Override

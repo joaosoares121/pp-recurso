@@ -14,6 +14,10 @@ public class QuestionYesNo extends Question implements interfaces.models.IQuesti
     
     private String correctAnswer;
     private String userAnswer;
+
+    public QuestionYesNo(String title, String description, QuestionMetadata metadata, boolean done, String answer, boolean evaluationAnswer, float mark) {
+        super(title, description, metadata, done, answer, evaluationAnswer, mark);
+    }
     
     @Override
     public String getCorrect_answer() {
