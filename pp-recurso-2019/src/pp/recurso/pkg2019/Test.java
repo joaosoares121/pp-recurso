@@ -27,43 +27,45 @@ public class Test implements interfaces.controller.ITest {
     private QuestionMultipleChoice[] questionMultipleChoice;
     private QuestionNumeric[] questionNumeric;
     private QuestionYesNo[] questionYesNo;
+    private Question q;
     
     private QuestionMetadata questionMetadata;
     
     QuestionYesNo yesnos[] = new QuestionYesNo[5];
     
     
-    
+   // Test t = new Test();
     
     
     @Override
     public boolean addQuestion(IQuestion iq) throws TestException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    return true;
     }
 
     @Override
     public IQuestion getQuestion(int i) throws TestException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return q;
     }
 
     @Override
     public boolean removeQuestion(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
 
     @Override
     public boolean removeQuestion(IQuestion iq) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        return true;
     }
 
     @Override
     public int numberQuestions() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         return 3;
     }
 
     @Override
     public boolean isComplete() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
 
     @Override
@@ -180,8 +182,9 @@ public class Test implements interfaces.controller.ITest {
 
                             System.out.println("correct_answer: " + temp_correct_answer);
                             
-                           
-                            yesnos[i] = new QuestionYesNo(temp_correct_answer, temp_title, temp_question_description, questionMetadata, true, temp_correct_answer, true, i);
+                           //t.addQuestion();
+                            
+                            yesnos[i] = new QuestionYesNo(temp_correct_answer,  temp_title, temp_question_description, questionMetadata, true, temp_correct_answer, true, i);
                             
                             System.out.println("ToString: " +yesnos[i].toString());
                             
