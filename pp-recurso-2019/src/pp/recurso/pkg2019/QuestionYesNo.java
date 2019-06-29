@@ -15,9 +15,16 @@ public class QuestionYesNo extends Question implements interfaces.models.IQuesti
     private String correctAnswer;
     private String userAnswer;
 
-    public QuestionYesNo(String title, String description, QuestionMetadata metadata, boolean done, String answer, boolean evaluationAnswer, float mark) {
+    public QuestionYesNo(String correctAnswer,  String title, String description, QuestionMetadata metadata, boolean done, String answer, boolean evaluationAnswer, float mark) {
         super(title, description, metadata, done, answer, evaluationAnswer, mark);
+        this.correctAnswer = correctAnswer;
+        //this.userAnswer = userAnswer;
     }
+
+    
+
+    
+    
     
     @Override
     public String getCorrect_answer() {
@@ -41,5 +48,14 @@ public class QuestionYesNo extends Question implements interfaces.models.IQuesti
     public void setUser_answer(String string) {
         this.userAnswer = string;
     }
+
+    @Override
+    public String toString() {
+        return "QuestionYesNo{" + "correctAnswer=" + correctAnswer + " titulo: " + getTitle() +'}';
+    }
+
+    
+    
+    
     
 }

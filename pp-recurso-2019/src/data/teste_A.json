@@ -42,9 +42,19 @@
         }
     },
     {
-        "type": "Numeric",
+        "type": "YesNo",
         "question": {
             "title": "Question 4",
+            "score": 4,
+            "mark":  5,
+            "question_description": "Object Oriented Programming is exclusive to the JAVA programming language",
+            "correct_answer": "yes"
+        }
+    },
+    {
+        "type": "Numeric",
+        "question": {
+            "title": "Question 5",
             "score": 4,
             "mark":  5,
             "question_description": "How many programming languages are taught in Paradigmas de Programação?",

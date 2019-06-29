@@ -24,6 +24,18 @@ import java.io.IOException;
  */
 public class Test implements interfaces.controller.ITest {
 
+    private QuestionMultipleChoice[] questionMultipleChoice;
+    private QuestionNumeric[] questionNumeric;
+    private QuestionYesNo[] questionYesNo;
+    
+    private QuestionMetadata questionMetadata;
+    
+    QuestionYesNo yesnos[] = new QuestionYesNo[5];
+    
+    
+    
+    
+    
     @Override
     public boolean addQuestion(IQuestion iq) throws TestException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -96,6 +108,8 @@ public class Test implements interfaces.controller.ITest {
 
                             String temp_title = temp_question.get("title").getAsString();
 
+                            
+                            
                             System.out.println("title: " + temp_title);
 
                             String temp_score = temp_question.get("score").getAsString();
@@ -112,16 +126,20 @@ public class Test implements interfaces.controller.ITest {
 
                             
                             
-                            JsonArray arrOptions = temp_question.getAsJsonArray("options"); 
                             
-                           
-                                 
-                                 
+                            
+                            
+                            //Le array options
+                            JsonArray arrOptions = temp_question.getAsJsonArray("options"); 
+                                
                             for (int j = 0; j < arrOptions.size(); j++) {
                                 
                                 System.out.println(arrOptions.get(j).getAsString());
+                                
                             
                             }
+                            
+                           
                              
 
                             String temp_correct_answer = temp_question.get("correct_answer").getAsString();
@@ -162,8 +180,12 @@ public class Test implements interfaces.controller.ITest {
 
                             System.out.println("correct_answer: " + temp_correct_answer);
                             
-                            System.out.println("--------------//////////-----------");
-
+                           
+                            yesnos[i] = new QuestionYesNo(temp_correct_answer, temp_title, temp_question_description, questionMetadata, true, temp_correct_answer, true, i);
+                            
+                            System.out.println("ToString: " +yesnos[i].toString());
+                            
+                             System.out.println("--------------//////////-----------");
                         }
                     }
                     

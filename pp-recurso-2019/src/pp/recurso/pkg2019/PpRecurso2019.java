@@ -28,6 +28,8 @@ public class PpRecurso2019 {
         //demoTest.loadFromJSONFile("C:\\Users\\Tiago Pinto\\Documents\\NetBeansProjects\\Trabalho_PP_RECURSO_2019\\pp-recurso\\pp-recurso-2019src\\data\\teste_A.json");
         demoTest.loadFromJSONFile("/Users/joaosoares/NetBeansProjects/pp-recurso/pp-recurso-2019/src/data/teste_A.json");
         
+        
+        
         //Executar o teste na camada gráfica
         TestWindow t = new TestWindow();
         t.startTest(demoTest);
