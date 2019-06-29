@@ -65,7 +65,9 @@ public class Test implements interfaces.controller.ITest {
         //Pessoa pessoas[] = new Pessoa[2];
         QuestionMultipleChoice questions[] = new QuestionMultipleChoice[2];
 
-        String path = "C:\\Users\\Tiago Pinto\\Documents\\NetBeansProjects\\Trabalho_PP_RECURSO_2019\\pp-recurso\\pp-recurso-2019\\src\\data\\teste_A.json";
+        //String path = "C:\\Users\\Tiago Pinto\\Documents\\NetBeansProjects\\Trabalho_PP_RECURSO_2019\\pp-recurso\\pp-recurso-2019\\src\\data\\teste_A.json";
+        String path = "/Users/joaosoares/NetBeansProjects/pp-recurso/pp-recurso-2019/src/data/teste_A.json";
+
         BufferedReader reader = null;
 
         try {
@@ -80,15 +82,134 @@ public class Test implements interfaces.controller.ITest {
                 JsonElement arrayElement = arr.get(i);
                 JsonObject obj = arrayElement.getAsJsonObject();
 
-                
-                
                 if (obj.has("type") && obj.has("question")) {
+
                     String temp_type = obj.get("type").getAsString();
+
                     JsonObject temp_question = obj.get("question").getAsJsonObject();
+
+                    System.out.println("type: " + temp_type);
+
+                    if ("MultipleChoice".equals(temp_type)) {
+
+                        if (temp_question.has("title") && temp_question.has("score") && temp_question.has("mark") && temp_question.has("question_description")) {
+
+                            String temp_title = temp_question.get("title").getAsString();
+
+                            System.out.println("title: " + temp_title);
+
+                            String temp_score = temp_question.get("score").getAsString();
+
+                            System.out.println("score: " + temp_score);
+
+                            String temp_mark = temp_question.get("mark").getAsString();
+
+                            System.out.println("mark: " + temp_mark);
+
+                            String temp_question_description = temp_question.get("question_description").getAsString();
+
+                            System.out.println("question_description: " + temp_question_description);
+
+                            
+                            
+                            JsonArray arrOptions = temp_question.getAsJsonArray("options"); 
+                            
+                           
+                                 
+                                 
+                            for (int j = 0; j < arrOptions.size(); j++) {
+                                
+                                System.out.println(arrOptions.get(j).getAsString());
+                            
+                            }
+                             
+
+                            String temp_correct_answer = temp_question.get("correct_answer").getAsString();
+
+                            System.out.println("correct_answer: " + temp_correct_answer);
+                            
+                            System.out.println("--------------//////////-----------");
+
+                        }
+                    }
+                    
+                    
+                 
+
+                    if ("YesNo".equals(temp_type)) {
+
+                        if (temp_question.has("title") && temp_question.has("score") && temp_question.has("mark") && temp_question.has("question_description")) {
+
+                            String temp_title = temp_question.get("title").getAsString();
+
+                            System.out.println("title: " + temp_title);
+
+                            String temp_score = temp_question.get("score").getAsString();
+
+                            System.out.println("score: " + temp_score);
+
+                            String temp_mark = temp_question.get("mark").getAsString();
+
+                            System.out.println("mark: " + temp_mark);
+
+                            String temp_question_description = temp_question.get("question_description").getAsString();
+
+                            System.out.println("question_description: " + temp_question_description);
+
+                            
+
+                            String temp_correct_answer = temp_question.get("correct_answer").getAsString();
+
+                            System.out.println("correct_answer: " + temp_correct_answer);
+                            
+                            System.out.println("--------------//////////-----------");
+
+                        }
+                    }
+                    
+                    if ("Numeric".equals(temp_type)) {
+
+                        if (temp_question.has("title") && temp_question.has("score") && temp_question.has("mark") && temp_question.has("question_description")) {
+
+                            String temp_title = temp_question.get("title").getAsString();
+
+                            System.out.println("title: " + temp_title);
+
+                            String temp_score = temp_question.get("score").getAsString();
+
+                            System.out.println("score: " + temp_score);
+
+                            String temp_mark = temp_question.get("mark").getAsString();
+
+                            System.out.println("mark: " + temp_mark);
+
+                            String temp_question_description = temp_question.get("question_description").getAsString();
+
+                            System.out.println("question_description: " + temp_question_description);
+
+                            
+
+                            String temp_correct_answer = temp_question.get("correct_answer").getAsString();
+
+                            System.out.println("correct_answer: " + temp_correct_answer);
+                            
+                            System.out.println("--------------//////////-----------");
+
+                        }
+                    }
+                
+            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     
                     
 
-                    
                 }
 
             }
