@@ -34,8 +34,6 @@ public class Question implements interfaces.models.IQuestion{
     
     
     
-    
-    
     @Override
     public String getTitle() {
         return title;

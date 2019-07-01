@@ -5,6 +5,7 @@
  */
 package pp.recurso.pkg2019;
 
+import collections.ClassificationManager;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -28,18 +29,20 @@ public class Test implements interfaces.controller.ITest {
     private QuestionNumeric[] questionNumeric;
     private QuestionYesNo[] questionYesNo;
     private Question q;
-    
+
+    private ClassificationManager cm;
+
     private QuestionMetadata questionMetadata;
-    
+
     QuestionYesNo yesnos[] = new QuestionYesNo[5];
-    
-    
-   // Test t = new Test();
-    
-    
+
+    // Test t = new Test();
     @Override
     public boolean addQuestion(IQuestion iq) throws TestException {
-    return true;
+
+        this.cm.addObject(iq);
+        
+        return true;
     }
 
     @Override
@@ -49,18 +52,24 @@ public class Test implements interfaces.controller.ITest {
 
     @Override
     public boolean removeQuestion(int i) {
+        
+        this.cm.removeObject(i);
+        
         return true;
     }
 
     @Override
     public boolean removeQuestion(IQuestion iq) {
 
+        //remove o objeto na posição x
+        this.cm.removeObject(0);
+        
         return true;
     }
 
     @Override
     public int numberQuestions() {
-         return 3;
+        return 3;
     }
 
     @Override
@@ -79,8 +88,8 @@ public class Test implements interfaces.controller.ITest {
         //Pessoa pessoas[] = new Pessoa[2];
         QuestionMultipleChoice questions[] = new QuestionMultipleChoice[2];
 
-        //String path = "C:\\Users\\Tiago Pinto\\Documents\\NetBeansProjects\\Trabalho_PP_RECURSO_2019\\pp-recurso\\pp-recurso-2019\\src\\data\\teste_A.json";
-        String path = "/Users/joaosoares/NetBeansProjects/pp-recurso/pp-recurso-2019/src/data/teste_A.json";
+        String path = "C:\\Users\\Tiago Pinto\\Documents\\NetBeansProjects\\Trabalho_PP_RECURSO_2019\\pp-recurso\\pp-recurso-2019\\src\\data\\teste_A.json";
+        //String path = "/Users/joaosoares/NetBeansProjects/pp-recurso/pp-recurso-2019/src/data/teste_A.json";
 
         BufferedReader reader = null;
 
@@ -110,8 +119,6 @@ public class Test implements interfaces.controller.ITest {
 
                             String temp_title = temp_question.get("title").getAsString();
 
-                            
-                            
                             System.out.println("title: " + temp_title);
 
                             String temp_score = temp_question.get("score").getAsString();
@@ -126,35 +133,23 @@ public class Test implements interfaces.controller.ITest {
 
                             System.out.println("question_description: " + temp_question_description);
 
-                            
-                            
-                            
-                            
-                            
                             //Le array options
-                            JsonArray arrOptions = temp_question.getAsJsonArray("options"); 
-                                
+                            JsonArray arrOptions = temp_question.getAsJsonArray("options");
+
                             for (int j = 0; j < arrOptions.size(); j++) {
-                                
+
                                 System.out.println(arrOptions.get(j).getAsString());
-                                
-                            
+
                             }
-                            
-                           
-                             
 
                             String temp_correct_answer = temp_question.get("correct_answer").getAsString();
 
                             System.out.println("correct_answer: " + temp_correct_answer);
-                            
+
                             System.out.println("--------------//////////-----------");
 
                         }
                     }
-                    
-                    
-                 
 
                     if ("YesNo".equals(temp_type)) {
 
@@ -176,22 +171,19 @@ public class Test implements interfaces.controller.ITest {
 
                             System.out.println("question_description: " + temp_question_description);
 
-                            
-
                             String temp_correct_answer = temp_question.get("correct_answer").getAsString();
 
                             System.out.println("correct_answer: " + temp_correct_answer);
+
                             
-                           //t.addQuestion();
-                            
-                            yesnos[i] = new QuestionYesNo(temp_correct_answer,  temp_title, temp_question_description, questionMetadata, true, temp_correct_answer, true, i);
-                            
-                            System.out.println("ToString: " +yesnos[i].toString());
-                            
-                             System.out.println("--------------//////////-----------");
+                            yesnos[i] = new QuestionYesNo(temp_correct_answer, temp_title, temp_question_description, questionMetadata, true, temp_correct_answer, true, i);
+
+                            System.out.println("ToString: " + yesnos[i].toString());
+
+                            System.out.println("--------------//////////-----------");
                         }
                     }
-                    
+
                     if ("Numeric".equals(temp_type)) {
 
                         if (temp_question.has("title") && temp_question.has("score") && temp_question.has("mark") && temp_question.has("question_description")) {
@@ -212,28 +204,14 @@ public class Test implements interfaces.controller.ITest {
 
                             System.out.println("question_description: " + temp_question_description);
 
-                            
-
                             String temp_correct_answer = temp_question.get("correct_answer").getAsString();
 
                             System.out.println("correct_answer: " + temp_correct_answer);
-                            
+
                             System.out.println("--------------//////////-----------");
 
                         }
                     }
-                
-            
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
 
                 }
 

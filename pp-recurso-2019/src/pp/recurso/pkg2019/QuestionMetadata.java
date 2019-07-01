@@ -35,5 +35,10 @@ public class QuestionMetadata implements interfaces.models.IQuestionMetadata{
     public void setTimestamp_finish(long l) {
         this.finish = l;
     }
-    
+
+    @Override
+    public String toString() {
+        return "QuestionMetadata{" + "start=" + start + ", finish=" + finish + '}';
+    }
+ 
 }
