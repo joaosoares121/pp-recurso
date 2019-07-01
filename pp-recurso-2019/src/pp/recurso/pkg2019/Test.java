@@ -84,7 +84,7 @@ public class Test implements interfaces.controller.ITest {
     @Override
     public ITestStatistics getTestStatistics() {
         
-        
+        //Falta acabar este Método
         
         return (ITestStatistics) this.cm;
     }
