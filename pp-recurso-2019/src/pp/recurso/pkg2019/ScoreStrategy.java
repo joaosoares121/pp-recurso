@@ -17,7 +17,9 @@ public class ScoreStrategy implements interfaces.controller.IScoreStrategy{
     
     @Override
     public String CalculateScore(IQuestion[] iqs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        
+        return calculateScore;
     }
     
 }

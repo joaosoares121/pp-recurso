@@ -18,6 +18,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import jdk.nashorn.internal.runtime.options.Options;
 
 /**
  *
@@ -35,6 +36,9 @@ public class Test implements interfaces.controller.ITest {
     private QuestionMetadata questionMetadata;
 
     QuestionYesNo yesnos[] = new QuestionYesNo[5];
+    QuestionMultipleChoice qmc[] = new QuestionMultipleChoice[5];
+    QuestionNumeric qn[] = new QuestionNumeric[5];
+    private String optionsMultiple[];
 
     // Test t = new Test();
     @Override
@@ -79,7 +83,10 @@ public class Test implements interfaces.controller.ITest {
 
     @Override
     public ITestStatistics getTestStatistics() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        
+        
+        return (ITestStatistics) this.cm;
     }
 
     @Override
@@ -135,17 +142,25 @@ public class Test implements interfaces.controller.ITest {
 
                             //Le array options
                             JsonArray arrOptions = temp_question.getAsJsonArray("options");
+                            this.optionsMultiple = new String[arrOptions.size()];
 
                             for (int j = 0; j < arrOptions.size(); j++) {
 
                                 System.out.println(arrOptions.get(j).getAsString());
-
+                                this.optionsMultiple[j] = arrOptions.get(j).toString();
+                                
+                                
+                               //String arrOpt[] = arrOptions.get(j).getAsString();
                             }
 
                             String temp_correct_answer = temp_question.get("correct_answer").getAsString();
 
                             System.out.println("correct_answer: " + temp_correct_answer);
-
+                            int j = 0;
+                            
+                            qmc[j] = new QuestionMultipleChoice(optionsMultiple,temp_correct_answer, string, path, string, questionMetadata, true, path, true, i);
+                            //cm.addObject(j);
+                            
                             System.out.println("--------------//////////-----------");
 
                         }
