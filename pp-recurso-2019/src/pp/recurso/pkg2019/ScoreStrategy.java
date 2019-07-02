@@ -19,6 +19,7 @@ public class ScoreStrategy implements interfaces.controller.IScoreStrategy{
     public String CalculateScore(IQuestion[] iqs) {
         
         
+        
         return calculateScore;
     }
     

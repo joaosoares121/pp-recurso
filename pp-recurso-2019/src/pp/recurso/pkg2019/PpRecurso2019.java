@@ -30,9 +30,12 @@ public class PpRecurso2019 {
         
         
         
+        
         //Executar o teste na camada gráfica
         TestWindow t = new TestWindow();
         t.startTest(demoTest);
+        
+        
 
         //Obter resultados do teste
         System.out.println("Teste efetuado");

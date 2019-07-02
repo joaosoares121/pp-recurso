@@ -15,8 +15,10 @@ import interfaces.controller.ITestStatistics;
 import interfaces.exceptions.TestException;
 import interfaces.models.IQuestion;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import jdk.nashorn.internal.runtime.options.Options;
 
@@ -40,10 +42,14 @@ public class Test implements interfaces.controller.ITest {
     QuestionNumeric qn[] = new QuestionNumeric[5];
     private String optionsMultiple[];
 
+    
+    
     // Test t = new Test();
     @Override
     public boolean addQuestion(IQuestion iq) throws TestException {
-
+        
+        
+            
         this.cm.addObject(iq);
         
         return true;
@@ -93,7 +99,7 @@ public class Test implements interfaces.controller.ITest {
     public boolean loadFromJSONFile(String string) throws TestException {
 
         //Pessoa pessoas[] = new Pessoa[2];
-        QuestionMultipleChoice questions[] = new QuestionMultipleChoice[2];
+        //QuestionMultipleChoice questions[] = new QuestionMultipleChoice[2];
 
         String path = "C:\\Users\\Tiago Pinto\\Documents\\NetBeansProjects\\Trabalho_PP_RECURSO_2019\\pp-recurso\\pp-recurso-2019\\src\\data\\teste_A.json";
         //String path = "/Users/joaosoares/NetBeansProjects/pp-recurso/pp-recurso-2019/src/data/teste_A.json";
@@ -101,6 +107,9 @@ public class Test implements interfaces.controller.ITest {
         BufferedReader reader = null;
 
         try {
+            
+            ClassificationManager cmTemp = new ClassificationManager();
+            
             reader = new BufferedReader(new FileReader(path));
 
             JsonStreamParser p = new JsonStreamParser(reader);
@@ -162,10 +171,14 @@ public class Test implements interfaces.controller.ITest {
                             //cm.addObject(j);
                             
                             System.out.println("--------------//////////-----------");
+                            
+                            
 
                         }
                     }
 
+                    //www.guj.com.br/t/o-que-e-instanceof/31561
+                    
                     if ("YesNo".equals(temp_type)) {
 
                         if (temp_question.has("title") && temp_question.has("score") && temp_question.has("mark") && temp_question.has("question_description")) {
@@ -191,13 +204,24 @@ public class Test implements interfaces.controller.ITest {
                             System.out.println("correct_answer: " + temp_correct_answer);
 
                             
-                            yesnos[i] = new QuestionYesNo(temp_correct_answer, temp_title, temp_question_description, questionMetadata, true, temp_correct_answer, true, i);
+                            //yesnos[i] = new QuestionYesNo(temp_correct_answer, temp_title, temp_question_description, questionMetadata, true, temp_correct_answer, true, i);
 
-                            System.out.println("ToString: " + yesnos[i].toString());
-
+                            //System.out.println("ToString: " + yesnos[i].toString());
+                            QuestionMetadata qmd = new QuestionMetadata();
+                            //System.out.println("" + qmd.getTimestamp_finish());
+                            QuestionYesNo qyn = new QuestionYesNo(temp_correct_answer, path, string, questionMetadata, true, path, true, i);
+                            
+                            System.out.println("Add Question YesNo" + cmTemp.addObject(qyn));
+                            System.out.println("Objeto Criado:" + qyn.toString());
+                            
+                            
+                            
                             System.out.println("--------------//////////-----------");
                         }
-                    }
+                    } //não estou a ouvir e diz que o teu tlm está desligado
+                    
+                    //tenta ligar agr
+                    //continua a dar desligado
 
                     if ("Numeric".equals(temp_type)) {
 
@@ -262,7 +286,23 @@ public class Test implements interfaces.controller.ITest {
 
     @Override
     public boolean saveTestResults() throws TestException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        QuestionMetadata qmd = new QuestionMetadata();
+        TestStatistics ts = new TestStatistics(1, 2, 1, 1, 3, 4, yesnos, yesnos);
+        
+        qmd.getTimestamp_start();
+        qmd.getTimestamp_finish();
+        ts.correctAnswer();
+        ts.correctAnswerPecentage();
+        ts.correctAnswers();
+        ts.getIncorrectAnswerPercentage();
+        ts.getIncorrectAnswers();
+        ts.getMeanTimePerAnswer();
+        ts.getStandardDerivationTimePerAnswear();
+        
+        
+        
+        return true;
     }
 
 }
